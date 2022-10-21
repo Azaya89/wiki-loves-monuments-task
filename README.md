@@ -18,5 +18,5 @@ This particular task involves writing six(6) functions that returns the:
 - Geo-location and
 - Date the image was taken.
 
-Each function returns the information in a neatly formatted string type.
+Each function returns the information in a formatted string type.
 
