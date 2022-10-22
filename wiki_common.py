@@ -1,7 +1,7 @@
 import requests
 
 # Helper functions
-def _page_id(data):
+def _page_id(data: str) -> str:
     """Returns the page ID from the json formatted data page."""
 
     pageid = [id for id in data["query"]["pages"]]
@@ -29,7 +29,7 @@ def _common_data(file: str) -> str:
     return metadata
 
 
-def _get_info(file, key, value):
+def _get_info(file: str, key: str, value: str) -> str:
     """Returns the value category specified from the image key provided."""
     # Return a value if available.
     for i in _common_data(file):
