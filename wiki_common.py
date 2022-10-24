@@ -1,4 +1,5 @@
 import requests
+import re
 
 # Helper functions
 def _page_id(data: str) -> str:
@@ -31,14 +32,14 @@ def _common_data(file: str) -> str:
 
 def _get_info(file: str, key: str, value: str) -> str:
     """Returns the value category specified from the image key provided."""
-    # Return a value if available.
     for i in _common_data(file):
-        if i["name"] == key:
+        match = re.search(key, i["name"])
+        if match:
             value = i["value"]
             return value
 
     # Return a message if value is unavailable.
-    return f"*{value} Unavailable.*"
+    return f"{value} unavailable."
 
 
 # Main functions
@@ -126,7 +127,7 @@ def get_coordinates(file: str) -> str:
 
 # Example:
 print(
-    date_taken(
+    get_location(
         "File:Webysther_20211009173053_-_Edifício_à_Rua_Floriano_Peixoto,_1386.jpg"
     )
 )
