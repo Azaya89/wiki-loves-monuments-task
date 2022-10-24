@@ -38,7 +38,7 @@ def _get_info(file: str, key: str, value: str) -> str:
             value = i["value"]
             return value
 
-    # Return a message if value is unavailable.
+    # Return a message if no match.
     return f"{value} unavailable."
 
 
